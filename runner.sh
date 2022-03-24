@@ -67,10 +67,10 @@ do
 	echo -e "\nNumber of targets in list: " $list_size "\n"
    	echo -e "\nTaking random targets to reduce the load on your CPU(processor)..."
 	
-   	if ((num_of_copies > list_size));
+   	if (("$num_of_copies" == "all"));
 	then
 		random_numbers=$(shuf -i 1-$list_size -n $list_size)
-	elif (("$num_of_copies" == "all"));
+	elif ((num_of_copies > list_size));
 	then 
 		random_numbers=$(shuf -i 1-$list_size -n $list_size)
 	elif ((num_of_copies < 1));
