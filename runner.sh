@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restart_interval=25s
+restart_interval=10s
 
 num_of_copies="${1:-2}"
 
