@@ -65,10 +65,10 @@ do
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
    	if ((num_of_copies > list_size));
 	then
-		num_of_copies=$list_size
+		num_of_copies=$(shuf -i 1-$list_size -n $list_size)
 	elif (("$num_of_copies" == "all"));
 	then 
-		num_of_copies=$list_size
+		num_of_copies=$(shuf -i 1-$list_size -n $list_size)
 	elif ((num_of_copies < 1));
 	then
 		num_of_copies=1
