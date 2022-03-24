@@ -63,7 +63,7 @@ debug="${4:-}"
 while [ 1 == 1 ]
 echo -e "\033[0;34m#####################################\033[0;0m\n"
 do
-   cd ~/auto_mhddos_test
+   	cd ~/auto_mhddos_test
 	num=$(sudo git pull origin main | grep -c "Already")
 	echo "$num"
   
@@ -71,7 +71,6 @@ do
 	then
 		echo -e "Running old(up to date) auto_mhddos"
 	else
-		cp ~/Updated-bombardier/bombardier ~
 		cd ~/auto_mhddos_test
 		echo "Running new auto_mhddos"
 		sudo pkill -f runner.sh
