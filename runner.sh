@@ -73,7 +73,8 @@ do
 	else
 		#sudo pkill -f runner.sh
 		cd ~/auto_mhddos_test
-		echo "Running new auto_mhddos"
+		clear
+		echo "Running updated auto_mhddos"
 		bash runner.sh&
 		exit
 	fi
