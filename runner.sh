@@ -69,7 +69,7 @@ do
   
 	if ((num == 1));
 	then
-		echo -e "Running old(up to date) auto_mhddos"
+		echo -e "Running up to date auto_mhddos"
 	else
 		#sudo pkill -f runner.sh
 		cd ~/auto_mhddos_test
