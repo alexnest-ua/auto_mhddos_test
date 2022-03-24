@@ -70,7 +70,7 @@ do
 		cd ~/auto_mhddos_test
 		clear
 		echo "Running updated auto_mhddos"
-		bash runner.sh&
+		bash runner.sh
 		exit 130
 	fi
 	clear
