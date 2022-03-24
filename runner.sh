@@ -70,7 +70,7 @@ do
 		cd ~/auto_mhddos_test
 		clear
 		echo "Running updated auto_mhddos"
-		bash runner.sh&
+		bash runner.sh $threads $rpc $proxy_interval $debug&
 		exit
 	fi
 	clear
