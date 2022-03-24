@@ -1,7 +1,7 @@
 # Опис
   
 runner.sh - ПОВНІСТЮ АВТООНОВЛЮВАНИЙ (оновлює цілі та себе) bash-скрипт для Linux-машин, що керує [mhddos_proxy](https://github.com/porthole-ascend-cinnamon/mhddos_proxy)  
-Також він автоматично оновлює не лише свій скрипт та цілі, а й скрипти з mhddos_proxy та MHDDoS: https://github.com/alexnest-ua/auto_mhddos_test/blob/7e7ad084240b54756519e4ebcace3683948c4de2/runner.sh#L43  
+Також він автоматично оновлює не лише свій скрипт та цілі, а й скрипти з mhddos_proxy та MHDDoS: https://github.com/alexnest-ua/auto_mhddos_test/blob/7e7ad084240b54756519e4ebcace3683948c4de2/runner.sh#L44  
 Також мій скрипт імітує роботу людини (вимикає увесь ДДоС на 1-10 (рандомно) хвилин, тобто вашу машину 95% не забанять, якщо правильно підібрати кількість потоків: https://github.com/alexnest-ua/auto_mhddos_test/blob/24581b9f03280abb449062578040d65fc1097432/runner.sh#L109  
 Скрипт розподіляє список машин по різним цілям
 
@@ -22,7 +22,7 @@ bash setup.sh
 ```
 *чекаємо 5-10 хвилин поки все встановиться.*  
 
-## Запуск роботу у фоні (24/7 на Linux-сервері) - можна закривати термінал
+## Запуск на роботу у фоні (24/7 на Linux-сервері) - можна закривати термінал
 Запуск автоматичного ДДоСу:  
 ```shell 
 cd ~/auto_mhddos_test
@@ -31,7 +31,7 @@ sudo screen -S "runner" bash runner.sh
 Настикаємо Ctrl+A , потім Ctrl+D - І ВСЕ ГОТОВО - ПРАЦЮЄ В ФОНІ  
 якщо все успішно буде повідомлення [detached from runner]  
 
-runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
+**!!!УВАГА!!!** runner.sh підтримує наступні параметри (САМЕ У ТАКОМУ ПОРЯДКУ ТА ЛИШЕ У ТАКІЙ КІЛЬКОСТІ(мінімум 3)), але можно і без них:  
 runner.sh [num_of_copies] [threads] [rpc] [debug]  
 - num_of_copies - кількість атакуємих за один прохід цілей
 - threads - кількість потоків на кожне ядро процесора
@@ -55,10 +55,29 @@ sudo screen -S "runner" bash runner.sh 1 300 100
 ```shell
 sudo screen -S "runner" bash runner.sh 1 500 100
 ```
-4. Середня+ машина (2-4 CPUs + 4-8 GB RAM):
+4. Середня+ машина(2-4 CPUs + 4-8 GB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh 1 500 100
+sudo screen -S "runner" bash runner.sh 2 750 200
 ```
+5. Нормальна машина(4 CPUs + 8 GB RAM):
+```shell
+sudo screen -S "runner" bash runner.sh 4 2000 200
+```
+6. Потужна машина(4+ CPUs + 8+ CB RAM):
+```shell
+sudo screen -S "runner" bash runner.sh all 1000 100
+```
+  
+*також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
+*також можете додавати останнім **4-тим** параметром --debug, що слідкувати за ходом атаки, наприклад:*  
+```shell
+sudo screen -S "runner" bash runner.sh 1 500 100 --debug
+```
+
+* Приклад БЕЗ параметру --debug:
+![image](https://user-images.githubusercontent.com/74729549/160018092-45e2e40d-f70c-4f6b-af14-6d0066dee1c7.png)
+* Приклад З параметром --debug:
+![image](https://user-images.githubusercontent.com/74729549/160018182-991ee42a-1ff0-434c-86fc-453b7909e96d.png)
 
 
 * щоб подивитися що там працює у фоні:  
@@ -70,6 +89,12 @@ sudo screen -ls
 sudo screen -r runner  
 ```
 Після цього, якщо хочете вбити процес - натискайте Ctrl+C  
+щоб вбити усі підпроцеси прописуєте:  
+```shell
+sudo pkill -f runner.sh
+sudo pkill -f runner.py
+sudo pkill -f ./start.py
+```
 
 * щоб знову від'єднатися, та залишити його працювати:  
 Настикаємо Ctrl+A , потім Ctrl+D - І ВСЕ ГОТОВО - ПРАЦЮЄ В ФОНІ  
