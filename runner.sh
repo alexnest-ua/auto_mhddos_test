@@ -76,7 +76,7 @@ do
 	clear
 	echo -e "\nRESTARTING\n"
    	#Just in case kill previous copy of mhddos_proxy
-   	echo "Kill all old processes with MHDDoS"
+   	echo "Killing all old processes with MHDDoS"
    	sudo pkill -f runner.py
    	sudo pkill -f ./start.py
    	echo -e "\n\033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
