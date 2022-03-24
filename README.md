@@ -89,7 +89,7 @@ sudo screen -ls
 sudo screen -r runner  
 ```
 Після цього, якщо хочете вбити процес - натискайте Ctrl+C  
-щоб вбити усі підпроцеси прописуєте:  
+щоб вбити усі підпроцеси прописуєте (У ІНШОМУ ВІКНІ ТЕРМІНАЛУ):  
 ```shell
 sudo pkill -f runner.sh
 sudo pkill -f runner.py
