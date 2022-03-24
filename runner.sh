@@ -33,7 +33,7 @@ rpc="--rpc $rpc"
 
 
 debug="${4:-}"
-if ["${debug}" != "--debug"] && ["${debug}" != ""];
+if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ];
 then
 	echo -e "\033[0;31m\n\ndebug in if: $debug\n\n\033[0;0m"
 	debug="--debug"
@@ -62,7 +62,7 @@ do
 		cd ~/auto_mhddos_test
 		clear
 		echo "Running updated auto_mhddos"
-		bash runner.sh $num_of_copies $threads $proxy_interval $debug&
+		bash runner.sh $num_of_copies $threads $rpc $debug&
 		exit
 	fi
 	#clear
