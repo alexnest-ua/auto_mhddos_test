@@ -26,7 +26,7 @@ bash setup.sh
 Запуск автоматичного ДДоСу:  
 ```shell 
 cd ~/auto_mhddos_test
-sudo screen -S "runner" bash runner.sh  
+screen -S "runner" bash runner.sh  
 ```
 Настикаємо Ctrl+A , потім Ctrl+D - І ВСЕ ГОТОВО - ПРАЦЮЄ В ФОНІ  
 якщо все успішно буде повідомлення [detached from runner]  
@@ -45,33 +45,33 @@ cd ~/auto_mhddos_test
 ```
 1. ***Для лінивих*** (буде обрано за замовчуванням: num_of_copies=1, threads=500 rpc=100 debug="" (1 ціль, 500 потоків, 100 запитів на проксі, без дебагу)
 ```shell
-sudo screen -S "runner" bash runner.sh 
+screen -S "runner" bash runner.sh 
 ```
 2. Слаба машина(1 CPU + 1-2 GB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh 1 300 100 
+screen -S "runner" bash runner.sh 1 300 100 
 ```
 3. Середня машина(2 CPUs + 2-4 GB RAM), саме ці параметри за замовчуванням:
 ```shell
-sudo screen -S "runner" bash runner.sh 1 500 100
+screen -S "runner" bash runner.sh 1 500 100
 ```
 4. Середня+ машина(2-4 CPUs + 4-8 GB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh 2 1500 200
+screen -S "runner" bash runner.sh 2 1500 200
 ```
 5. Нормальна машина(4 CPUs + 8 GB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh 3 2000 250
+screen -S "runner" bash runner.sh 3 2000 250
 ```
 6. Потужна машина(4+ CPUs + 8+ CB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh all 3000 500
+screen -S "runner" bash runner.sh all 3000 500
 ```
   
 *також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
 *також можете додавати останнім **4-тим** параметром --debug, що слідкувати за ходом атаки, наприклад:*  
 ```shell
-sudo screen -S "runner" bash runner.sh 1 500 100 --debug
+screen -S "runner" bash runner.sh 1 500 100 --debug
 ```
 
 * Приклад БЕЗ параметру --debug:
@@ -82,11 +82,11 @@ sudo screen -S "runner" bash runner.sh 1 500 100 --debug
 
 * щоб подивитися що там працює у фоні:  
 ```shell 
-sudo screen -ls  
+screen -ls  
 ```
 * щоб перейти до процесу та дізнатися як у нього справи (що він виводить), пишіть:  
 ```shell 
-sudo screen -r runner  
+screen -r runner  
 ```
 Після цього, якщо хочете вбити процес - натискайте Ctrl+C  
 щоб вбити усі підпроцеси прописуєте (У ІНШОМУ ВІКНІ ТЕРМІНАЛУ):  
