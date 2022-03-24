@@ -62,6 +62,7 @@ do
 		cd ~/auto_mhddos_test
 		clear
 		echo "Running updated auto_mhddos"
+		echo -e "\033[0;31m\n\ndebug in else in while: $debug\n\n\033[0;0m"
 		bash runner.sh $num_of_copies $threads $rpc $debug&
 		exit
 	fi
