@@ -56,7 +56,7 @@ do
 		cd ~/auto_mhddos_test
 		clear
 		echo "Running updated auto_mhddos"
-		bash runner.sh $threads $rpc $proxy_interval $debug&
+		bash runner.sh $num_of_copies $threads $proxy_interval $debug&
 		exit
 	fi
 	#clear
@@ -88,7 +88,7 @@ do
            
 
             echo -e "\nfull cmd:\n"
-            echo "$cmd_line $proxy_interval $rpc $threads $debug"
+            echo "sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads $debug"
             
             cd ~/mhddos_proxy
             #sudo docker run -d -it --rm ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $proxy_interval $rpc
