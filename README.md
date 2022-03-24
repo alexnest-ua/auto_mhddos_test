@@ -10,18 +10,19 @@
 cd ~  
 sudo rm -r auto_mhddos_alexnest
 sudo apt install git -y  
-git clone https://github.com/alexnest-ua/auto_mhddos_alexnest.git 
+git clone https://github.com/alexnest-ua/auto_mhddos_test
+.git 
 ```
 Якщо немає Docker а на машині(він потрібен зараз):  
 ```shell
-cp ~/auto_mhddos_alexnest/install_docker.sh ~
+cd auto_mhddos_test
 bash install_docker.sh
 ```  
   
 Запуск автоматичного ДДоСу:  
   
 ```shell 
-cp ~/auto_mhddos_alexnest/runner.sh ~  
+cd auto_mhddos_test  
 sudo screen -S "runner" bash runner.sh  
 ```
 Настикаємо Ctrl+A , потім Ctrl+D - І ВСЕ ГОТОВО - ПРАЦЮЄ В ФОНІ  
