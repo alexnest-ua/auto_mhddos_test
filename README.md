@@ -10,8 +10,7 @@
 cd ~  
 sudo rm -r auto_mhddos_alexnest
 sudo apt install git -y  
-git clone https://github.com/alexnest-ua/auto_mhddos_test
-.git 
+git clone https://github.com/alexnest-ua/auto_mhddos_test.git 
 ```
 Якщо немає Docker а на машині(він потрібен зараз):  
 ```shell
