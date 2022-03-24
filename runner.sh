@@ -71,9 +71,9 @@ do
 	then
 		echo -e "Running old(up to date) auto_mhddos"
 	else
+		sudo pkill -f runner.sh
 		cd ~/auto_mhddos_test
 		echo "Running new auto_mhddos"
-		sudo pkill -f runner.sh
 		bash runner.sh&
 	fi
    
