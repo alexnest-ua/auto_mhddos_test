@@ -23,14 +23,12 @@ if ((threads < 100));
 then
 	threads=100
 fi
-threads="-t $threads"
+
 rpc="${3:-100}"
 if ((rpc < 20));
 then
 	rpc=20
 fi
-rpc="--rpc $rpc"
-
 
 debug="${4:-}"
 if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ];
@@ -68,6 +66,9 @@ do
 	fi
 	#clear
    	
+	threads="-t $threads"
+	rpc="--rpc $rpc"
+	
 	echo -e "\n\ndebug: $debug\n\n"
 	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
