@@ -71,7 +71,7 @@ do
 		clear
 		echo "Running updated auto_mhddos"
 		bash runner.sh&
-		exit
+		exit 130
 	fi
 	clear
 	echo -e "\nRESTARTING\n"
