@@ -1,4 +1,5 @@
 #Just in case kill previous copy of mhddos_proxy
+sudo pkill -f runner.sh
 sudo pkill -f runner.py
 sudo pkill -f ./start.py
 
