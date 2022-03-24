@@ -64,6 +64,8 @@ do
 	fi
 	clear
    	
+	echo -e "\n\ndebug: $debug\n\n"
+	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
 	
