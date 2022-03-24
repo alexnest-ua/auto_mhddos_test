@@ -63,20 +63,24 @@ do
    	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
+	
+	echo -e "\nNumber of targets in list: " $list_size "\n"
+   	echo -e "\nTaking random targets to reduce the load on your CPU(processor)..."
+	
    	if ((num_of_copies > list_size));
 	then
-		num_of_copies=$(shuf -i 1-$list_size -n $list_size)
+		random_numbers=$(shuf -i 1-$list_size -n $list_size)
 	elif (("$num_of_copies" == "all"));
 	then 
-		num_of_copies=$(shuf -i 1-$list_size -n $list_size)
+		random_numbers=$(shuf -i 1-$list_size -n $list_size)
 	elif ((num_of_copies < 1));
 	then
 		num_of_copies=1
+		random_numbers=$(shuf -i 1-$list_size -n $num_of_copies)
+	else
+		random_numbers=$(shuf -i 1-$list_size -n $num_of_copies)
 	fi
 	
-  	echo -e "\nNumber of targets in list: " $list_size "\n"
-   	echo -e "\nTaking random targets to reduce the load on your CPU(processor)..."
-   	random_numbers=$(shuf -i 1-$list_size -n $num_of_copies)
    	echo -e "\nRandom number(s): " $random_numbers "\n"
       
    	# Launch multiple mhddos_proxy instances with different targets.
