@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restart_interval=10m
+restart_interval=2m
 
 
 
@@ -33,6 +33,7 @@ proxy_interval="-p $proxy_interval"
 debug="${4:-}"
 if [ "${debug}" != "--debug" ] && [ "${debug}" != "" ];
 then
+	echo -e "\033[0;31m\n\ndebug in if: $debug\n\n\033[0;0m"
 	debug="--debug"
 fi
 echo -e "\n\ndebug: $debug\n\n"
@@ -62,7 +63,7 @@ do
 		bash runner.sh $num_of_copies $threads $proxy_interval $debug&
 		exit
 	fi
-	clear
+	#clear
    	
 	echo -e "\n\ndebug: $debug\n\n"
 	
@@ -117,7 +118,7 @@ do
 	
    	no_ddos_sleep="$(shuf -i 1-10 -n 1)m"
    	echo -e "\n\033[46mSleeping $no_ddos_sleep to protect your machine from ban...\033[0m\n"
-	sleep $no_ddos_sleep
+	#sleep $no_ddos_sleep
 	
 	echo -e "\n\033[42mRESTARTING\033[0m\n"
 	
