@@ -100,7 +100,7 @@ do
             #sudo docker run -d -it --rm ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $proxy_interval $rpc
             #sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads &debug&
             echo -e "\n\033[42mAttack started successfully\033[0m\n"
-   done"""
+   done
    echo -e "\033[0;34m#####################################\033[0;0m\n"
    echo -e "\n\033[1;35mDDoS is up and Running, next update of targets list in $restart_interval\033[1;0m"
    sleep $restart_interval
