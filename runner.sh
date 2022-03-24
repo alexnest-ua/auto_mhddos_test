@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restart_interval=10s
+restart_interval=1m
 
 num_of_copies="${1:-1}"
 
@@ -34,7 +34,12 @@ fi
 # Restart attacks and update targets list every 10 minutes (by default)
 while [ 1 == 1 ]
 echo -e "\033[0;34m#####################################\033[0;0m\n"
-do
+do	
+	cd ~/mhddos_proxy
+	sudo git pull origin main
+	cd ~/mhddos_proxy/MHDDoS
+	sudo git pull origin main
+	
 	cd ~/auto_mhddos_test
    	num=$(sudo git pull origin main | grep -c "Already")
    	echo "$num"
