@@ -48,16 +48,12 @@ threads="${2:-500}"
 if ((threads < 100));
 then
 	threads=100
-else
-	threads=250
 fi
 threads="-t $threads"
 rpc="${3:-100}"
 if ((rpc < 20));
 then
 	rpc=20
-else
-	rpc=100
 fi
 rpc="--rpc $rpc"
 proxy_interval="300"
@@ -108,8 +104,6 @@ do
 	elif ((num_of_copies < 1));
 	then
 		num_of_copies=1
-	else
-		num_of_copies=2
 	fi
 	
   	echo -e "\nNumber of targets in list: " $list_size "\n"
