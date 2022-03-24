@@ -57,15 +57,15 @@ sudo screen -S "runner" bash runner.sh 1 500 100
 ```
 4. Середня+ машина(2-4 CPUs + 4-8 GB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh 2 750 200
+sudo screen -S "runner" bash runner.sh 2 1500 200
 ```
 5. Нормальна машина(4 CPUs + 8 GB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh 4 2000 200
+sudo screen -S "runner" bash runner.sh 3 2000 250
 ```
 6. Потужна машина(4+ CPUs + 8+ CB RAM):
 ```shell
-sudo screen -S "runner" bash runner.sh all 1000 100
+sudo screen -S "runner" bash runner.sh all 3000 500
 ```
   
 *також ви можете змінювати параметри на будь-які інші значення, але я рекомендую саме ці.*  
