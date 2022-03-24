@@ -73,6 +73,13 @@ do
 		bash runner.sh&
 		exit
 	fi
+	clear
+	echo -e "\nRESTARTING\n"
+   	#Just in case kill previous copy of mhddos_proxy
+   	echo "Kill all old processes with MHDDoS"
+   	sudo pkill -f runner.py
+   	sudo pkill -f ./start.py
+   	echo -e "\n\033[0;35mAll old processes with MHDDoS killed\033[0;0m\n"
    	
    	# Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
    	list_size=$(curl -s https://raw.githubusercontent.com/alexnest-ua/auto_mhddos_test/main/runner_targets | cat | grep "^[^#]" | wc -l)
