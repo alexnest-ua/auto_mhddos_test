@@ -66,8 +66,6 @@ do
 	fi
 	#clear
    	
-	threads="-t $threads"
-	rpc="--rpc $rpc"
 	
 	echo -e "\n\ndebug: $debug\n\n"
 	
@@ -102,11 +100,11 @@ do
            
 
             echo -e "\nfull cmd:\n"
-            echo "sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads $debug"
+            echo "sudo python3 runner.py $cmd_line $proxy_interval --rpc $rpc -t $threads $debug"
             
             cd ~/mhddos_proxy
             #sudo docker run -d -it --rm ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $proxy_interval $rpc
-            sudo python3 runner.py $cmd_line $proxy_interval $rpc $threads $debug&
+            sudo python3 runner.py $cmd_line $proxy_interval --rpc $rpc -t $threads $debug&
             echo -e "\n\033[42mAttack started successfully\033[0m\n"
    	done
 	echo -e "\033[0;34m#####################################\033[0;0m\n"
