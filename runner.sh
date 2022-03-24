@@ -71,10 +71,11 @@ do
 	then
 		echo -e "Running old(up to date) auto_mhddos"
 	else
-		sudo pkill -f runner.sh
+		#sudo pkill -f runner.sh
 		cd ~/auto_mhddos_test
 		echo "Running new auto_mhddos"
 		bash runner.sh&
+		exit
 	fi
    
    # Get number of targets in runner_targets. First 5 strings ommited, those are reserved as comments.
