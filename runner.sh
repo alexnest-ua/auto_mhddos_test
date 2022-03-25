@@ -62,7 +62,7 @@ do
 		clear
 		echo "Running updated auto_mhddos"
 		echo -e "\033[0;31m\n\ndebug in else in while: $debug\n\n\033[0;0m"
-		bash runner.sh $num_of_copies $threads $rpc $debug& # run new downloaded script 
+		bash runner.sh $num_of_copies $threads $rpc $debug # run new downloaded script 
 		exit #terminate old script
 	fi
 	#
@@ -115,7 +115,7 @@ do
             
             cd ~/mhddos_proxy
             #sudo docker run -d -it --rm ghcr.io/porthole-ascend-cinnamon/mhddos_proxy:latest $cmd_line $proxy_interval $rpc
-            sudo python3 runner.py $cmd_line $proxy_interval --rpc $rpc -t $threads $debug&
+            sudo python3 runner.py $cmd_line $proxy_interval --rpc $rpc -t $threads $debug
             echo -e "\n\033[42mAttack started successfully\033[0m\n"
    	done
 	echo -e "\033[0;34m#####################################\033[0;0m\n"
