@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restart_interval=30s
+restart_interval=13m
 
 
 
@@ -133,8 +133,8 @@ do
 	
    	no_ddos_sleep="$(shuf -i 4-12 -n 1)m"
    	echo -e "\n\033[46mSleeping $no_ddos_sleep to protect your machine from ban...\033[0m\n"
-	#sleep $no_ddos_sleep
-	sleep 5s
+	sleep $no_ddos_sleep
+	#sleep 5s
 	echo -e "\n\033[42mRESTARTING\033[0m\n"
 	
 	# for docker
