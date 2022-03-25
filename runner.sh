@@ -1,6 +1,6 @@
 #!/bin/bash
 
-restart_interval=2m
+restart_interval=1m
 
 
 
